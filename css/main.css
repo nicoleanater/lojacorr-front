@@ -1,0 +1,30 @@
+html, body {
+    height: 100vh;
+}
+
+footer.page-footer {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 20px 20px 20px;
+    background-color: #eee;
+    width: 100vw;
+    text-align: center;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.form-login {
+    width: 60%;
+    padding-bottom: 15px;
+}
+
+.nav-item .nav-link {
+    padding: 15px 15px;
+    text-decoration: none;
+    color: #ffffff;
+    position: relative;
+    top: -5px;
+}
