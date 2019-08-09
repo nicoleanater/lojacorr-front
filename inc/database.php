@@ -55,13 +55,13 @@ function findLogin( $email = null, $password = null ) {
 	$found = null;
 	try {
 	  if ($email && $password) {
-	    // $sql = "SELECT * FROM users WHERE email = '" . $email . "'AND password = '" . $password . '";
-	    $sql = "SELECT * FROM users WHERE email = 'nicole_anater@hotmail.com' AND password = '123456'";
-	    $result = $database->query($sql);
-	    
+      $stmt = $database->prepare('SELECT * FROM users WHERE email = ? AND password = ? ');
+      $stmt->bind_param('ss', $email, $password);
+      $stmt->execute();
+      $result = $stmt->get_result();
 	    if ($result->num_rows > 0) {
 	      $found = $result->fetch_assoc();
-	    }
+      }
 	    
 	  }
 	} catch (Exception $e) {

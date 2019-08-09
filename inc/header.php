@@ -1,3 +1,5 @@
+<?php  require_once('functions.php');  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,18 +16,24 @@
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
-        <li class="nav-item active">
+        <div class="nav-item active">
           <a href="<?php echo BASEURL; ?>index.php" class="navbar-brand header-text">HOME</a>
-        </li>
-        <?php if (isset( $_SESSION['user_id'])) : ?>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo BASEURL; ?>usuarios">
-                Usuários
-            </a>
-          </li>
+        </div>
+        <?php if (!isset( $_SESSION['user_id'])) : ?>
+          <div class="nav-item">
+            <a class="nav-link" href="<?php echo BASEURL; ?>usuarios">Usuários</a>
+          </div>
+          <div class="nav-item logout-link">
+            <a class="nav-link" onclick="logout();">Sair </a>
+          </div>
         <?php endif; ?>
       </div>
     </nav>
+    <script type="text/javascript">
+      function logout(){
+        <?php logout() ?>
+      }
+    </script>
 
 
 <main class="container">

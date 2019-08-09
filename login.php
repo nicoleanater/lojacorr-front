@@ -6,6 +6,7 @@
 <?php require_once DBAPI; ?>
 <?php $db = open_database(); ?>
 
+<?php include(HEADER_TEMPLATE); ?>
 <h1>Login</h1>
 <hr />
 
@@ -14,11 +15,11 @@
     <form action="login.php" method="post" class="form-login">
         <div class="form-group">
             <label for="login-input">Email</label>
-            <input type="email" class="form-control" id="login-input" name="user['email']" placeholder="exemplo@dominio.com">
+            <input type="email" class="form-control" id="login-input" name="user[email]" placeholder="exemplo@dominio.com">
         </div>
         <div class="form-group">
             <label for="password-input">Senha</label>
-            <input type="password" class="form-control" id="password-input" name="user['password']" placeholder="••••••">
+            <input type="password" class="form-control" id="password-input" name="user[password]" placeholder="••••••">
         </div>
         <button type="submit" class="btn btn-primary">Entrar</button>
     </form>

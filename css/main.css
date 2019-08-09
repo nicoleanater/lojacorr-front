@@ -21,10 +21,32 @@ body {
     padding-bottom: 15px;
 }
 
+.navbar.navbar-inverse.navbar-fixed-top .container{
+    display: flex;
+    align-items: center;
+}
+
 .nav-item .nav-link {
     padding: 15px 15px;
     text-decoration: none;
     color: #ffffff;
     position: relative;
-    top: -5px;
+}
+
+.nav-item.logout-link{
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+}
+
+.home-container {
+    display: flex;
+}
+
+.home-action {
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-right: 20px;
+    background-color: #32949b;
+    color: white;
 }

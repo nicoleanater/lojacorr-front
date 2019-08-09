@@ -4,36 +4,27 @@
 <?php include(HEADER_TEMPLATE); ?>
 <?php $db = open_database(); ?>
 
-<h1>Painel do Cliente</h1>
+<h1>Painel de Usuários</h1>
 <hr />
+<p>Olá <b><?php echo $_SESSION['user_name'] ?></b>! O que você deseja fazer?</p>
 
 <?php if ($db) : ?>
 
 <div class="row">
-	<div class="col-xs-6 col-sm-3 col-md-2">
-		<a href="usuarios/add.php" class="btn btn-primary">
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<i class="fa fa-plus fa-5x"></i>
-				</div>
-				<div class="col-xs-12 text-center">
-					<p>Novo Cliente</p>
-				</div>
+	<div class="home-container container">
+		<a href="usuarios" class="home-action">
+			<div class="col-xs-12 text-center d-flex">
+				<i class="fa fa-list"></i>
+				Visualizar Usuários
 			</div>
 		</a>
-	</div>
-
-	<div class="col-xs-6 col-sm-3 col-md-2">
-		<a href="usuarios" class="btn btn-default">
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<i class="fa fa-user fa-5x"></i>
-				</div>
-				<div class="col-xs-12 text-center">
-					<p>Clientes</p>
-				</div>
+		<a href="usuarios/add.php" class="home-action">
+			<div class="col-xs-12 text-center d-flex">
+				<i class="fa fa-plus"></i>
+				Criar Usuário
 			</div>
 		</a>
+		
 	</div>
 </div>
 

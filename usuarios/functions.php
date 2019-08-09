@@ -17,13 +17,13 @@ function index() {
 
 <?php
 function add() {
+  session_start();
   if (!empty($_POST['user'])) {
     $user = $_POST['user'];
     $address = $_POST['address'];
-    
+    // echo "<script>console.log(".json_encode($address).");</script>";
     
     $address_id = save('address', $address);
-    // echo "<script>console.log('Debug Objects: . $address_id . ' );</script>";
     $user['address_id'] = $address_id;
     save('users', $user);
     
