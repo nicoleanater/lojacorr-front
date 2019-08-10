@@ -1,5 +1,9 @@
 # lojacorr-front
 
+## Considerações
+Na entrevista foi mencionado que a linguagem utilizada no front-end pelos desenvolvedores é `php`, e apesar de possuir apenas noção básica da linguagem procurei aprender o suficiente para realizar esse teste. Como não foi especificado se era esperado que as interfaces tivessem persistência de dados, defini que sim e desenvolvi um CRUD de usuários.
+
+## Instalação
 Para rodar o projeto é preciso ter instalado:
 - XAMPP
 - MySQL
