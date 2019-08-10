@@ -24,7 +24,7 @@ $usuario = null;
 
 function index() {
 	global $usuarios;
-	$usuarios = find_all('users');
+	$usuarios = find_all('user');
 }
 
 
@@ -39,30 +39,9 @@ function add() {
     
     $address_id = save('address', $address);
     $user['address_id'] = $address_id;
-    save('users', $user);
+    save('user', $user);
     
     header((!isset( $_SESSION['user_id'])) ? 'location:' . BASEURL . 'index.php' : 'location: index.php');
-  }
-}
-?>
-
-<?php
-
-function edit() {
-  
-  if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    if (isset($_POST['usuario'])) {
-      $usuario = $_POST['usuario'];
-      
-      update('users', $id, $usuario);
-      header('location: index.php');
-    } else {
-      global $usuario;
-      $usuario = find('users', $id);
-    } 
-  } else {
-    header('location: index.php');
   }
 }
 ?>
@@ -70,15 +49,6 @@ function edit() {
 
 function view($id = null) {
   global $usuario;
-  $usuario = find('users', $id);
+  $usuario = find('user', $id);
 }
-?>
-<?php
-
-function delete($id = null) {
-  global $usuario;
-  $usuario = remove('users', $id);
-  header('location: index.php');
-}
-
 ?>

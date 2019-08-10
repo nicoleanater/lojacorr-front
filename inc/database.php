@@ -23,7 +23,7 @@ function find( $table = null, $id = null ) {
 	$found = null;
 	try {
 	  if ($id) {
-	    $sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
+	    $sql = "SELECT * FROM " . $table . " INNER JOIN address ON address.id = user.address_id WHERE user.id = " . $id;
 	    $result = $database->query($sql);
 	    
 	    if ($result->num_rows > 0) {
@@ -55,7 +55,7 @@ function findLogin( $email = null, $password = null ) {
 	$found = null;
 	try {
 	  if ($email && $password) {
-      $stmt = $database->prepare('SELECT * FROM users WHERE email = ? AND password = ? ');
+      $stmt = $database->prepare('SELECT * FROM user WHERE email = ? AND password = ? ');
       $stmt->bind_param('ss', $email, $password);
       $stmt->execute();
       $result = $stmt->get_result();
@@ -112,48 +112,3 @@ function save($table = null, $data = null) {
   return $id;
 }
 ?>
-
-<?php
-
-function update($table = null, $id = 0, $data = null) {
-  $database = open_database();
-  $items = null;
-  foreach ($data as $key => $value) {
-    $items .= trim($key, "'") . "='$value',";
-  }
-  // remove last comma
-  $items = rtrim($items, ',');
-  $sql  = "UPDATE " . $table;
-  $sql .= " SET $items";
-  $sql .= " WHERE id=" . $id . ";";
-  try {
-    $database->query($sql);
-    $_SESSION['message'] = 'Registro atualizado com sucesso.';
-    $_SESSION['type'] = 'success';
-  } catch (Exception $e) { 
-    $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
-    $_SESSION['type'] = 'danger';
-  } 
-  close_database($database);
-}
-?>
-<?php
-
-function remove( $table = null, $id = null ) {
-  $database = open_database();
-	
-  try {
-    if ($id) {
-      $sql = "DELETE FROM " . $table . " WHERE id = " . $id;
-      $result = $database->query($sql);
-      if ($result = $database->query($sql)) {   	
-        $_SESSION['message'] = "Registro Removido com Sucesso.";
-        $_SESSION['type'] = 'success';
-      }
-    }
-  } catch (Exception $e) { 
-    $_SESSION['message'] = $e->GetMessage();
-    $_SESSION['type'] = 'danger';
-  }
-  close_database($database);
-}

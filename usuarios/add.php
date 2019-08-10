@@ -8,7 +8,6 @@
 <h2>Novo Usuário</h2>
 
 <form action="add.php" method="post">
-  <!-- area de campos do form -->
   <hr />
   <h4>Dados Pessoais</h4>
   <div class="row">
