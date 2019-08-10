@@ -1,5 +1,3 @@
-<?php  require_once('functions.php');  ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,21 +17,16 @@
         <div class="nav-item active">
           <a href="<?php echo BASEURL; ?>index.php" class="navbar-brand header-text">HOME</a>
         </div>
-        <?php if (!isset( $_SESSION['user_id'])) : ?>
+        <?php if (isset( $_SESSION['user_id'])) : ?>
           <div class="nav-item">
             <a class="nav-link" href="<?php echo BASEURL; ?>usuarios">Usuários</a>
           </div>
           <div class="nav-item logout-link">
-            <a class="nav-link" onclick="logout();">Sair </a>
+            <a class="nav-link" href="<?php echo BASEURL; ?>logout.php">Sair</a>
           </div>
         <?php endif; ?>
       </div>
     </nav>
-    <script type="text/javascript">
-      function logout(){
-        <?php logout() ?>
-      }
-    </script>
 
 
 <main class="container">

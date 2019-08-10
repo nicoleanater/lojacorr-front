@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 define('DB_NAME', 'crud-users');
 

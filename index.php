@@ -3,12 +3,11 @@
 
 <?php include(HEADER_TEMPLATE); ?>
 <?php $db = open_database(); ?>
-<?php  session_start(); ?>
 
 <?php if ($db) : ?>
 	<?php
-		!isset( $_SESSION['user_id']) ? include(HOME) : header('location: login.php');
-		// echo "<script>console.log(".$_SESSION['user_id'].");</script>";
+		isset( $_SESSION['user_id']) ? include(HOME) : header('location: login.php');
+		echo "<script>console.log(".$_SESSION['user_id'].");</script>";
 	?>
 <?php else : ?>
 	<div class="alert alert-danger" role="alert">
